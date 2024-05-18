@@ -53,7 +53,84 @@ Gophish is an open-source phishing simulation and security awareness training to
 
 ### How to install Gophish ? 
 
+To install Gophish on your system, follow these steps:
+
+1. Visit the [Gophish releases page](https://github.com/gophish/gophish/releases/) and download the appropriate version for your system.
+2. Unzip the downloaded file into a directory named "Gophish".
+3. Launch Gophish by running the executable file.
+
+Upon your first launch, the password for the admin user will be displayed in the console. You will be prompted to change this password on your first login.
+
+To host Gophish online, modify the `listen_url` part in the `config.json` file to `"0.0.0.0:3333"`.
+
+```
+mkdir Gophish
+cd Gophish
+wget <link>
+unzip gophish-file
+nano config.json ( modify "listen-url":"0.0.0.0:3333")
+sudo chmod +x gophish
+
+```
+
+
 ### How did I configure my Gophish campaign ? 
+
+#### Users & Groups
+
+![Gophish Users & Groups](/assets/gophish-users.png)
+
+You can either create users manually or importing a CSV file to import lots of users at the same time.
+
+#### Sending Profile
+
+![Gophish Sending Profile](/assets/gophish-sender.png)
+
+Unless you use a less restrictive smtp server than the mainstream ones, you have to input your real mail address between the brackets in the SMTP From field. 
+
+For the host, as I used outlook it is : smtp-mail.outlook.com using the 587 port, but if you used google for example it would have been : smtp.gmail.com using the same 587 port. It needs to be changed depending on the smtp service that you want to use so I recommend that you make a quick google search for it.
+
+For the username and password, use your email address and the corresponding password for the email service. Depending on the service, you may need to use an app-specific password.
+
+#### Email Template
+
+Now that you have configured a user to receive your mails and a profile to send your mails, you need an email template to send. 
+
+![Gophish Email Template](/assets/gophish-mail.png)
+
+This is where you need to start being creative. 
+
+Since I wanted to make an instagram phishing e-mail, I went to my old e-mail address and copied the html code of an instagram e-mail that I once received.
+
+Most images were blank and/or outdated so I had to change most src links in the html to craft the mail. 
+
+#### Landing Pages
+
+![Gophish Landing Page](/assets/gophish-landing.png)
+
+Gophish has a feature that allows you to import websites, although its effectiveness depends on the complexity of the page you wish to copy. Often, you will need to edit the login form to ensure it functions correctly.
+
+Additionally, you can choose whether to capture the data that your target inputs and specify a page to which the user will be redirected.
+
+For my Instagram phishing page, I found a template [here](https://github.com/rat-c/gophish-templates/blob/main/landing/instagram.html) and modified the form to make it compatible with Gophish.
+
+#### Campaign
+
+![Gophish Campaign](/assets/gophish-campaign.png)
+
+Once everything is setup, you can start your first campaign !
+
+The user receives this e-mail : 
+
+![Gophish Mail](/assets/gophish-mail-received.png)
+
+If the user clicks on it he goes to this page : 
+
+![Gophish Instagram Landing Page](/assets/gophish-insta.png)
+
+And you will retrieved the data on the dashboard :
+
+![Gophish Retrieved Data](/assets/gophish-dashboard.png)
 
 ## Disclaimer
 
@@ -66,12 +143,3 @@ This report and the associated demonstrations using Gophish are created to educa
 Always conduct security testing within legal boundaries and with the explicit consent of those involved. The author of this report and the developers of Gophish do not endorse or condone any illegal or unethical activities and are not responsible for any misuse of the information provided.
 
 By using the information and tools discussed in this report, you agree to use them responsibly and in accordance with all applicable laws and regulations.
-
-
-
-
-
-
-_______________________________________________________________________________
-
- WORK IN PROGRESS

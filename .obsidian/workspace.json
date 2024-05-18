@@ -27,7 +27,7 @@
               "state": {
                 "file": "README.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -161,6 +161,14 @@
   },
   "active": "7ff0997c99e1414d",
   "lastOpenFiles": [
+    "assets/gophish-dashboard.png",
+    "assets/gophish-insta.png",
+    "assets/gophish-mail-received.png",
+    "assets/gophish-campaign.png",
+    "assets/gophish-mail.png",
+    "assets/gophish-landing.png",
+    "assets/gophish-sender.png",
+    "assets/gophish-users.png",
     "Assignment.md",
     "README.md",
     "Untitled.md",
